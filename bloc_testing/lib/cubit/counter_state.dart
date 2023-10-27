@@ -5,8 +5,8 @@ class CounterState extends Equatable {
   final bool wasIncremented;
 
   CounterState({
-    @required this.counterValue,
-    this.wasIncremented,
+    required this.counterValue,
+    required this.wasIncremented,
   });
 
   @override
