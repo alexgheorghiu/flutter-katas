@@ -7,42 +7,34 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
-  final CounterCubit _counterCubit = CounterCubit();
+  final CounterCubit _counterCubit =
+      CounterCubit(); //a single Cubit reused everywhere
 
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(
-            builder: (context) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: HomeScreen(
-                    title: 'HomeScreen',
-                    color: Colors.blueAccent,
-                  ),
+            builder: (context) => HomeScreen(
+                  title: 'HomeScreen',
+                  color: Colors.blueAccent,
                 ));
         break;
       case '/second':
         return MaterialPageRoute(
-            builder: (context) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: SecondScreen(
-                    title: 'SecondScreen',
-                    color: Colors.redAccent,
-                  ),
+            builder: (context) => SecondScreen(
+                  title: 'SecondScreen',
+                  color: Colors.redAccent,
                 ));
         break;
       case '/third':
         return MaterialPageRoute(
-            builder: (context) => BlocProvider.value(
-                  value: _counterCubit,
-                  child: ThirdScreen(
-                    title: 'HomeScreen',
-                    color: Colors.greenAccent,
-                  ),
+            builder: (context) => ThirdScreen(
+                  title: 'HomeScreen',
+                  color: Colors.greenAccent,
                 ));
         break;
       default:
         throw Exception('No such route');
     }
   }
-}
+} //end AppRouter
